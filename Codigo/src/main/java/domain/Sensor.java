@@ -17,4 +17,12 @@ public class Sensor {
         this.unaPileta = unaPileta;
         this.listReglas = new ArrayList<Regla>();
     }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
 }
