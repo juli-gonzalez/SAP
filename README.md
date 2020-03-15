@@ -32,14 +32,3 @@ Se solicita:
 ►Generar la Traducción de los Requerimientos a Idioma Alemán.
 
 ►Generar la Traducción de los Requerimientos a Idioma Inglés.
-Forma de Entrega:
-
-♦En un Documento PDF, tipografía Arial 12 o similar, espaciado simple.
-
-♦Presentación en Power Point o similar.
-
-♦Fecha de Entrega Máxima: Lunes 20 de Marzo de 2020.
-
-♦Enviar por mail a: saclier@gmail.com con el Asunto: “TP Integrador Sistemas IT - Primer Año”
-
-♦Se realizará una presentación y defensa oral la primer clase de la Asignatura Integración de Sistemas en Abril de 2020.
