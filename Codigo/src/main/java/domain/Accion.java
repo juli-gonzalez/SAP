@@ -10,4 +10,22 @@ public class Accion {
         this.nombre = nombre;
         this.unaAlarma = unaAlarma;
     }
+
+    public Alarma getUnaAlarma() {
+        return unaAlarma;
+    }
+
+    public void setAlarma(Alarma unaAlarma) {
+        this.unaAlarma = unaAlarma;
+    }
+
+    public boolean chequearAlarmaExistente(){
+        return this.getUnaAlarma() != null;
+    }
+
+    public void activarAlarma(){
+        if(chequearAlarmaExistente()){
+            this.unaAlarma.notificar();
+        }
+    }
 }

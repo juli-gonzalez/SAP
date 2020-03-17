@@ -1,8 +1,9 @@
 package domain.Actuadores;
 
+import domain.Accion;
 import domain.Usuario;
 
-public class Termotanque {
+public class Termotanque implements Actuador{
     private String nombre;
     private Usuario unUsuario;
     private boolean estado;
@@ -11,5 +12,9 @@ public class Termotanque {
         this.nombre = nombre;
         this.unUsuario = unUsuario;
         this.estado = estado;
+    }
+
+    public void encenderPorUna(Accion unaAccion){
+        this.estado = true;
     }
 }

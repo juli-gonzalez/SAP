@@ -10,4 +10,23 @@ public class Alarma {
         this.nombre = nombre;
         this.unUsuario = unUsuario;
     }
+
+    public void notificar(){
+        if(this.unUsuario.isLogeado()) {
+            mostrarPopUp();
+            enviarMail();
+        }else
+            enviarMail();
+
+
+    }
+
+    public void enviarMail(){
+        this.unUsuario.recibirMail();
+    }
+
+    public void mostrarPopUp(){
+        this.unUsuario.mostrarPopUp();
+    }
+
 }

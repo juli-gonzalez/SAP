@@ -16,4 +16,21 @@ public class Usuario {
         this.logeado = logeado;
         this.unaAlarma = unaAlarma;
     }
+
+    public boolean isLogeado() {
+        return logeado;
+    }
+
+    public void setLogeado(boolean logeado) {
+        this.logeado = logeado;
+    }
+
+    public void recibirMail(){
+
+    }
+
+    public void mostrarPopUp(){
+
+    }
+
 }
