@@ -1,0 +1,11 @@
+domain\Gimnasio.class
+domain\Condicion.class
+domain\Usuario.class
+domain\Actuadores\Actuador.class
+domain\Actuadores\TanqueCloro.class
+domain\Regla.class
+domain\Sensor.class
+domain\Accion.class
+domain\Actuadores\Termotanque.class
+domain\Alarma.class
+domain\Pileta.class

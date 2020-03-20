@@ -5,10 +5,9 @@ public class Accion {
     private String nombre;
     private Alarma unaAlarma;
 
-    public Accion(int id, String nombre, Alarma unaAlarma) {
+    public Accion(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.unaAlarma = unaAlarma;
     }
 
     public Alarma getUnaAlarma() {
@@ -25,7 +24,7 @@ public class Accion {
 
     public void activarAlarma(){
         if(chequearAlarmaExistente()){
-            this.unaAlarma.notificar();
+            this.unaAlarma.notificar(this.unaAlarma.getUnUsuario());
         }
     }
 }

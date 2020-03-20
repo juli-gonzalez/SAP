@@ -2,26 +2,26 @@ package domain;
 
 public class Regla {
     private int id;
-    private String nombre;
-    private float valor;
+    private String descripcion;
+    private double valor;
     private Sensor unSensor;
     private Accion unaAccion;
     private Condicion valorEs;
 
-    public Regla(int id, String nombre, float valor, Sensor unSensor, Accion unaAccion, Condicion valorEs) {
+    public Regla(int id, String descripcion, double valor, Sensor unSensor, Accion unaAccion, Condicion valorEs) {
         this.id = id;
-        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.valor = valor;
         this.unSensor = unSensor;
         this.unaAccion = unaAccion;
         this.valorEs = valorEs;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

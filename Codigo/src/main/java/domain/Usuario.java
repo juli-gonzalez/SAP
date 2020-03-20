@@ -1,20 +1,33 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
     private String nombre;
     private String apellido;
     private String login;
     private String mail;
     private boolean logeado;
-    private Alarma unaAlarma;
+    private List<Gimnasio> listGimnasios;
+    private List<Alarma> listAlarmas;
 
-    public Usuario(String nombre, String apellido, String login, String mail, boolean logeado, Alarma unaAlarma) {
+    public Usuario(String nombre, String apellido, String login, String mail) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.login = login;
         this.mail = mail;
-        this.logeado = logeado;
-        this.unaAlarma = unaAlarma;
+        this.logeado = false;
+        this.listGimnasios = new ArrayList<Gimnasio>();
+        this.listAlarmas = new ArrayList<Alarma>();
+    }
+
+    public void agregarAlarma(Alarma unaAlarma){
+        this.listAlarmas.add(unaAlarma);
+    }
+
+    public void agregarGimnasio(Gimnasio unGimnasio){
+        this.listGimnasios.add(unGimnasio);
     }
 
     public boolean isLogeado() {
@@ -24,13 +37,4 @@ public class Usuario {
     public void setLogeado(boolean logeado) {
         this.logeado = logeado;
     }
-
-    public void recibirMail(){
-
-    }
-
-    public void mostrarPopUp(){
-
-    }
-
 }
