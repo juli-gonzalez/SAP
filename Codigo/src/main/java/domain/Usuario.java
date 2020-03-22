@@ -22,6 +22,19 @@ public class Usuario {
         this.listAlarmas = new ArrayList<Alarma>();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+
     public void agregarAlarma(Alarma unaAlarma){
         this.listAlarmas.add(unaAlarma);
     }

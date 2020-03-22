@@ -18,6 +18,10 @@ public class Sensor {
         this.valor = 0;
     }
 
+    public void recibirMedicion(double unaMedicion){
+        this.listReglas.forEach(regla -> regla.accionar(unaMedicion));
+    }
+
     public void agregarRegla(Regla unaRegla){
         this.listReglas.add(unaRegla);
     }

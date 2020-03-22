@@ -25,22 +25,24 @@ public class Regla {
         this.valor = valor;
     }
 
-    public boolean soyCumplida(){
+    public void accionar(double unaMedicion){
+        if (soyCumplida(unaMedicion)){
+            this.unaAccion.activarAlarma();
+        }
+    }
+
+    public boolean soyCumplida(double unaMedicion){
         if(this.valorEs == Condicion.MAYOR){
-            return this.unSensor.getValor() > this.getValor();
+            return unaMedicion > this.getValor();
         }
         else if(this.valorEs == Condicion.MENOR){
-            return this.unSensor.getValor() < this.getValor();
+            return unaMedicion < this.getValor();
         }
         else if(this.valorEs == Condicion.IGUAL){
-            return this.unSensor.getValor() == this.getValor();
+            return unaMedicion == this.getValor();
         }
         return false;
     }
 
-    public void accionar(){
-        if (soyCumplida()){
-            this.unaAccion.activarAlarma();
-        }
-    }
+
 }

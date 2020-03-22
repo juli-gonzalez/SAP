@@ -1,13 +1,24 @@
 package domain;
 
+import domain.Actuadores.Actuador;
+
 public class Accion {
     private int id;
     private String nombre;
     private Alarma unaAlarma;
+    private Actuador unActuador;
 
     public Accion(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+    }
+
+    public Actuador getUnActuador() {
+        return unActuador;
+    }
+
+    public void setUnActuador(Actuador unActuador) {
+        this.unActuador = unActuador;
     }
 
     public Alarma getUnaAlarma() {
@@ -25,6 +36,7 @@ public class Accion {
     public void activarAlarma(){
         if(chequearAlarmaExistente()){
             this.unaAlarma.notificar(this.unaAlarma.getUnUsuario());
+            this.unActuador.activarPorUna(this);
         }
     }
 }

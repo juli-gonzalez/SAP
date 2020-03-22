@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="domain.TestSAP" time="0.004" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="domain.TestSAP" time="0.034" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -30,7 +30,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.2\plugins\maven\lib\maven-event-listener.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.2\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\julyh\AppData\Local\Microsoft\WindowsApps;C:\Users\julyh\.dotnet\tools;C:\Users\julyh\AppData\Local\Microsoft\WindowsApps;D:\Programas Instalados\Microsoft VS Code\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Users\julyh\AppData\Local\Microsoft\WindowsApps;C:\Users\julyh\.dotnet\tools;C:\Users\julyh\AppData\Local\Microsoft\WindowsApps;D:\Programas Instalados\Microsoft VS Code\bin;."/>
     <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.2\plugins\maven\lib\maven3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
@@ -64,5 +64,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="domain.TestSAP" name="agregarUsuarioAGimnasio" time="0.004"/>
+  <testcase classname="domain.TestSAP" name="agregarReglasASensor" time="0.003"/>
+  <testcase classname="domain.TestSAP" name="chequearUsuarioDeslogeadoRecibeAlerta" time="0.031"/>
+  <testcase classname="domain.TestSAP" name="agregarUsuarioAGimnasio" time="0"/>
+  <testcase classname="domain.TestSAP" name="chequearCumplimientoReglaTempMenorA17GradosYNoMayorA30" time="0"/>
+  <testcase classname="domain.TestSAP" name="agregarPiletasAGimnasio" time="0"/>
+  <testcase classname="domain.TestSAP" name="chequearCumplimientoReglaTempMayorA30GradosYNoMenorA17" time="0"/>
+  <testcase classname="domain.TestSAP" name="chequearUsuarioLogeadoRecibeAlerta" time="0"/>
+  <testcase classname="domain.TestSAP" name="chequearCumplimientoReglaTempIgualA26Grados" time="0"/>
 </testsuite>

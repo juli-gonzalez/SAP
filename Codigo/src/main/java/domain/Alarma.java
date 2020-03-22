@@ -38,7 +38,8 @@ public class Alarma {
     }
 
     private void enviarMail(){ {
-        System.out.println("Mail recibido");
+        Mail unMail = new Mail(this.unUsuario.getMail(),this.unUsuario.getNombre() + " " + this.unUsuario.getApellido() + ", ha recibido una nueva alerta",this.descripcion);
+        unMail.enviarMail();
     }}
 
     private void mostrarPopUp(){

@@ -1,3 +1,4 @@
+domain\Mail.class
 domain\Gimnasio.class
 domain\Condicion.class
 domain\Usuario.class

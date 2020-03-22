@@ -1,5 +1,4 @@
 package domain;
-import domain.Actuadores.Actuador;
 import domain.Actuadores.TanqueCloro;
 import domain.Actuadores.Termotanque;
 import org.junit.Assert;
@@ -59,6 +58,8 @@ public class TestSAP {
     private TanqueCloro unTanqueCloro;
 
 
+    //Mail
+
 
     @Before
     public void init(){
@@ -109,8 +110,8 @@ public class TestSAP {
 
 
         //Usuarios
-        this.usuarioUno = new Usuario("Juanito","Gonzalez","juan132","july_4@hotmail.com");
-        this.usuarioDos = new Usuario("Mathias","Tejeda","tej321","mathitgda@hotmail.com");
+        this.usuarioUno = new Usuario("Julian","Gonzalez","jul449","julyhindu_4@hotmail.com");
+        this.usuarioDos = new Usuario("Mathias","Tejeda","tej321","julyhindu_4@hotmail.com");
 
         //Actuadores
         this.unTermo = new Termotanque("Termotanque",false);
@@ -148,9 +149,10 @@ public class TestSAP {
         sensorTempGymMadysonPileta1.agregarRegla(reglaApagarTermoArribaDe30Grados);
         sensorTempGymMadysonPileta1.agregarRegla(reglaNoHacerNadaTempIgualA26Grados);
         sensorTempGymMadysonPileta1.setValor(16.9);
-        Assert.assertTrue(reglaEncenderTermoAbajoDe17Grados.soyCumplida());
-        Assert.assertFalse(reglaApagarTermoArribaDe30Grados.soyCumplida());
-        Assert.assertFalse(reglaNoHacerNadaTempIgualA26Grados.soyCumplida());
+        sensorTempGymMadysonPileta1.recibirMedicion(sensorTempGymMadysonPileta1.getValor());
+        Assert.assertTrue(reglaEncenderTermoAbajoDe17Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaApagarTermoArribaDe30Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaNoHacerNadaTempIgualA26Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
     }
 
     @Test
@@ -159,9 +161,10 @@ public class TestSAP {
         sensorTempGymMadysonPileta1.agregarRegla(reglaApagarTermoArribaDe30Grados);
         sensorTempGymMadysonPileta1.agregarRegla(reglaNoHacerNadaTempIgualA26Grados);
         sensorTempGymMadysonPileta1.setValor(30.1);
-        Assert.assertTrue(reglaApagarTermoArribaDe30Grados.soyCumplida());
-        Assert.assertFalse(reglaEncenderTermoAbajoDe17Grados.soyCumplida());
-        Assert.assertFalse(reglaNoHacerNadaTempIgualA26Grados.soyCumplida());
+        sensorTempGymMadysonPileta1.recibirMedicion(sensorTempGymMadysonPileta1.getValor());
+        Assert.assertTrue(reglaApagarTermoArribaDe30Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaEncenderTermoAbajoDe17Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaNoHacerNadaTempIgualA26Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
     }
 
     @Test
@@ -170,9 +173,10 @@ public class TestSAP {
         sensorTempGymMadysonPileta1.agregarRegla(reglaApagarTermoArribaDe30Grados);
         sensorTempGymMadysonPileta1.agregarRegla(reglaNoHacerNadaTempIgualA26Grados);
         sensorTempGymMadysonPileta1.setValor(26.0);
-        Assert.assertTrue(reglaNoHacerNadaTempIgualA26Grados.soyCumplida());
-        Assert.assertFalse(reglaApagarTermoArribaDe30Grados.soyCumplida());
-        Assert.assertFalse(reglaEncenderTermoAbajoDe17Grados.soyCumplida());
+        sensorTempGymMadysonPileta1.recibirMedicion(sensorTempGymMadysonPileta1.getValor());
+        Assert.assertTrue(reglaNoHacerNadaTempIgualA26Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaApagarTermoArribaDe30Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
+        Assert.assertFalse(reglaEncenderTermoAbajoDe17Grados.soyCumplida(sensorTempGymMadysonPileta1.getValor()));
     }
 
     //-------------------------------------------------------CHEQUEO DE ALERTAS-------------------------------------------------------
@@ -183,11 +187,12 @@ public class TestSAP {
         usuarioUno.setLogeado(true);
         sensorTempGymMadysonPileta1.agregarRegla(reglaEncenderTermoAbajoDe17Grados);
         sensorTempGymMadysonPileta1.setValor(16.9);
-        reglaEncenderTermoAbajoDe17Grados.accionar();
+        sensorTempGymMadysonPileta1.recibirMedicion(sensorTempGymMadysonPileta1.getValor());
+        accionEncenderTermo.setUnActuador(unTermo);
         accionEncenderTermo.setAlarma(alarmaTemperaturaMenorA17Grados);
-        alarmaTemperaturaMenorA17Grados.notificar(usuarioUno);
+        alarmaTemperaturaMenorA17Grados.setUnUsuario(usuarioUno);
         Assert.assertFalse(unTermo.isEstado());
-        unTermo.encenderPorUna(accionEncenderTermo);
+        accionEncenderTermo.activarAlarma();
         Assert.assertTrue(unTermo.isEstado());
     }
 
@@ -195,11 +200,12 @@ public class TestSAP {
     public void chequearUsuarioDeslogeadoRecibeAlerta(){
         sensorPhGymMadysonPileta1.agregarRegla(reglaAbrirCloroMenosDe3pH);
         sensorPhGymMadysonPileta1.setValor(2.5);
-        reglaAbrirCloroMenosDe3pH.accionar();
+        sensorPhGymMadysonPileta1.recibirMedicion(sensorPhGymMadysonPileta1.getValor());
+        accionAbrirCloro.setUnActuador(unTanqueCloro);
         accionAbrirCloro.setAlarma(alarmaAcidezMenorA3pH);
-        alarmaAcidezMenorA3pH.notificar(usuarioUno);
+        alarmaAcidezMenorA3pH.setUnUsuario(usuarioDos);
         Assert.assertFalse(unTanqueCloro.isEstado());
-        unTanqueCloro.encenderPorUna(accionAbrirCloro);
+        accionAbrirCloro.activarAlarma();
         Assert.assertTrue(unTanqueCloro.isEstado());
     }
 

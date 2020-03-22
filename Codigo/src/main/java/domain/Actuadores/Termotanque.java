@@ -16,11 +16,7 @@ public class Termotanque implements Actuador{
         return estado;
     }
 
-    public void encenderPorUna(Accion unaAccion){
+    public void activarPorUna(Accion unaAccion){
         this.estado = true;
-    }
-
-    public void apagarPorUna(Accion unaAccion){
-        this.estado = false;
     }
 }
