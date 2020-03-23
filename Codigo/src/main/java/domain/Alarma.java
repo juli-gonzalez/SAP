@@ -43,7 +43,8 @@ public class Alarma {
     }}
 
     private void mostrarPopUp(){
-        System.out.println(this.descripcion);
+        PopUp unPopUp = new PopUp();
+        unPopUp.infoBox(descripcion,"Alarma");
     }
 
 }
